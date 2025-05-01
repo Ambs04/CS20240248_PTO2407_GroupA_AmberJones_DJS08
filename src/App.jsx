@@ -8,11 +8,15 @@ function App() {
   return (
     <BrowserRouter>
       <header>
-        <nav></nav>
+        <Link>#VanLife</Link>
+        <nav>
+          <Link to="/about">About</Link>
+        </nav>
       </header>
       <Routes>
-        <Route />
-        <Route />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/vans" element={<Vans />} />
       </Routes>
     </BrowserRouter>
   );
