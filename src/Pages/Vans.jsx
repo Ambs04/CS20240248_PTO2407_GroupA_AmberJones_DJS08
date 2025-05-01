@@ -14,13 +14,13 @@ export default function Vans() {
 
   //map over api data and log a custom card for each van in the react dom
   const vanEl = vans.map((van) => (
-    <div key={van.id}>
+    <div key={van.id} className="van-tile">
       <img src={van.imageUrl} />
-      <div>
+      <div className="van-info">
         <h3>{van.name}</h3>
-        <p>`${van.price}/day`</p>
+        <p>`$ ${van.price}/day`</p>
       </div>
-      <i>{van.type}</i>
+      <i className={`van-type ${van.type} selected`}>{van.type}</i>
     </div>
   ));
 
