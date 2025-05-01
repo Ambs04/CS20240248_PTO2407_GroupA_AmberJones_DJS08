@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Vans from "./Pages/Vans";
+import "../src/server";
 
 function App() {
   return (
