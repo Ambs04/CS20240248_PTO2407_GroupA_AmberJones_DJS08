@@ -1,5 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+//import React from "react";
+//import ReactDOM from "react-dom/client";
+import { Link } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -8,7 +9,9 @@ function App() {
   return (
     <BrowserRouter>
       <header>
-        <Link>#VanLife</Link>
+        <Link to="/" className="site-logo">
+          #VanLife
+        </Link>
         <nav>
           <Link to="/about">About</Link>
         </nav>
@@ -16,7 +19,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/vans" element={<Vans />} />
       </Routes>
     </BrowserRouter>
   );
