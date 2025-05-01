@@ -7,7 +7,7 @@ export default function Vans() {
 
   //fetch data from server.js 'api' and load api data once
   React.useEffect(() => {
-    fetch("../server/vans")
+    fetch("api/vans")
       .then((res) => res.json())
       .then((data) => setVans(data.vans));
   }, []);
@@ -18,11 +18,16 @@ export default function Vans() {
       <img src={van.imageUrl} />
       <div className="van-info">
         <h3>{van.name}</h3>
-        <p>`$ ${van.price}/day`</p>
+        <p>${van.price} / day</p>
       </div>
       <i className={`van-type ${van.type} selected`}>{van.type}</i>
     </div>
   ));
 
-  return <h1>Vans go here</h1>;
+  return (
+    <div className="van-list-container">
+      <h1>Explore our van options</h1>
+      <div className="van-list">{vanEl}</div>
+    </div>
+  );
 }
