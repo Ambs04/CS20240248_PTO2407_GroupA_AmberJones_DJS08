@@ -20,15 +20,15 @@ export default function VanDetail() {
   //Use ternary to see if van exists, if it does, display van  detail tile. If it doesn't exist then render the h2 text
 
   return (
-    <div>
+    <div className="van-detail-container">
       {van ? (
-        <div>
+        <div className="van-detail">
           <img src={van.imageUrl} />
-          <i>{van.type}</i>
+          <i className={`van-type ${van.type} selected`}>{van.type}</i>
           <h2>{van.name}</h2>
-          <p></p>
+          <p>${van.price} / day</p>
           <p>{van.description}</p>
-          <button>Rent this van</button>
+          <button className="link-button">Rent this van</button>
         </div>
       ) : (
         <h2>Loading...</h2>
