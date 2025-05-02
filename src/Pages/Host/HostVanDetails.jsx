@@ -6,7 +6,7 @@ export default function HostVanDetails() {
   const [currentVan, setCurrentVan] = React.useState();
 
   React.useEffect(() => {
-    fetch(`api/host/vans/${id}`)
+    fetch(`/api/host/vans/${id}`)
       .then((res) => res.json())
       .then((data) => setCurrentVan(data.vans));
   }, []);
@@ -17,6 +17,9 @@ export default function HostVanDetails() {
 
   return (
     <section>
+      <Link to=".." relative="path" className="back-button">
+        &larr; <span>Back to all vans</span>
+      </Link>
       <div className="host-van-detail-layout-container">
         <div className="host-van-detail">
           <img src={currentVan.imageUrl} />
