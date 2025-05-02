@@ -1,15 +1,15 @@
 //import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 export default function HostLayout() {
   return (
     <>
       <nav className="host-nav">
-        <Link to="." end>
+        <NavLink to="." end>
           Dashboard
-        </Link>
-        <Link to="income">Income</Link>
-        <Link to="reviews">Reviews</Link>
+        </NavLink>
+        <NavLink to="income">Income</NavLink>
+        <NavLink to="reviews">Reviews</NavLink>
       </nav>
       <Outlet />
     </>
