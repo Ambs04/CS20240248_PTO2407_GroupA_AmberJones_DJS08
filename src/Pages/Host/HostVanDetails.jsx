@@ -2,14 +2,14 @@ import React from "react";
 import { useParams, NavLink, Link, Outlet } from "react-router-dom";
 
 export default function HostVanDetails() {
+  const { id } = useParams();
+  const [currentVan, setCurrentVan] = React.useState();
+
   const styleActive = {
     fontWeight: "bold",
     textDecoration: "underline",
     color: "#161616",
   };
-
-  const { id } = useParams();
-  const [currentVan, setCurrentVan] = React.useState();
 
   React.useEffect(() => {
     fetch(`/api/host/vans/${id}`)
@@ -37,29 +37,29 @@ export default function HostVanDetails() {
             <h4>${currentVan.price} / day</h4>
           </div>
         </div>
+
+        <nav className="host-van-detail-nav">
+          <NavLink
+            to="."
+            style={({ isActive }) => (isActive ? styleActive : null)}
+          >
+            Details
+          </NavLink>
+          <NavLink
+            to="pricing"
+            style={({ isActive }) => (isActive ? styleActive : null)}
+          >
+            Pricing
+          </NavLink>
+          <NavLink
+            to="photo"
+            style={({ isActive }) => (isActive ? styleActive : null)}
+          >
+            Photos
+          </NavLink>
+        </nav>
         <Outlet />
       </div>
-
-      <nav className="host-van-detail-nav">
-        <NavLink
-          to="."
-          style={({ isActive }) => (isActive ? styleActive : null)}
-        >
-          Details
-        </NavLink>
-        <NavLink
-          to="pricing"
-          style={({ isActive }) => (isActive ? styleActive : null)}
-        >
-          Pricing
-        </NavLink>
-        <NavLink
-          to="photo"
-          style={({ isActive }) => (isActive ? styleActive : null)}
-        >
-          Photos
-        </NavLink>
-      </nav>
     </section>
   );
 }
