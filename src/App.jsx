@@ -10,15 +10,6 @@ import VanDetail from "./Pages/Vans/VanDetail";
 function App() {
   return (
     <BrowserRouter>
-      <header>
-        <Link to="/" className="site-logo">
-          #VanLife
-        </Link>
-        <nav>
-          <Link to="/about">About</Link>
-          <Link to="/vans">Vans</Link>
-        </nav>
-      </header>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
