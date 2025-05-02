@@ -7,6 +7,10 @@ import About from "./Pages/About";
 import Vans from "./Pages/Vans/Vans";
 import VanDetail from "./Pages/Vans/VanDetail";
 import Layout from "./Components/Layout";
+import HostLayout from "./Components/HostLayout";
+import Dashboard from "./Pages/Host/Dashboard";
+import Income from "./Pages/Host/Income";
+import Reviews from "./Pages/Host/Reviews";
 
 function App() {
   return (
@@ -17,13 +21,13 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="vans" element={<Vans />} />
           <Route path="vans/:id" element={<VanDetail />} />
-        </Route>
 
-        {/* <Route path="/" element={<HostLayout />}>
-          <Route index element={<Dashboard />}/>
-          <Route path="income" element={<Income/>}/>
-          <Route path="Reviews" element={<Reviews/>} />
-        </Route> */}
+          <Route path="host" element={<HostLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="income" element={<Income />} />
+            <Route path="Reviews" element={<Reviews />} />
+          </Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
