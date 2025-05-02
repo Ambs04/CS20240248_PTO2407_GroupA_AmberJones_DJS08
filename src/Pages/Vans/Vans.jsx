@@ -1,5 +1,5 @@
 import React from "react";
-import "../server";
+import "../../server";
 
 export default function Vans() {
   //set state(empty array) to a variable
