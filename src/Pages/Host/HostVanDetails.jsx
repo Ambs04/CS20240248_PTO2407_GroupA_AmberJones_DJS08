@@ -28,7 +28,7 @@ export default function HostVanDetails() {
               {currentVan.type}
             </i>
             <h3>{currentVan.name}</h3>
-            <h4>{currentVan.price} / day</h4>
+            <h4>${currentVan.price} / day</h4>
           </div>
         </div>
         <Outlet />
