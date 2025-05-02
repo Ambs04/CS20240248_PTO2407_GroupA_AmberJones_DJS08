@@ -18,6 +18,12 @@ function App() {
           <Route path="vans" element={<Vans />} />
           <Route path="vans/:id" element={<VanDetail />} />
         </Route>
+
+        {/* <Route path="/" element={<HostLayout />}>
+          <Route index element={<Dashboard />}/>
+          <Route path="income" element={<Income/>}/>
+          <Route path="Reviews" element={<Reviews/>} />
+        </Route> */}
       </Routes>
     </BrowserRouter>
   );
