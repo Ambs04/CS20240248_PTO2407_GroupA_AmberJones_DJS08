@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+//import { Link } from "react-router-dom";
 //import "../../server";
 
 export default function VanDetail() {
@@ -7,11 +8,11 @@ export default function VanDetail() {
   const params = useParams();
 
   //set state
-  const [van, setVan] = React.useState();
+  const [van, setVan] = React.useState(null);
 
   //fetch data from 'api' and map data to the setVan array
   React.useEffect(() => {
-    fetch(`api/vans/${params.id}`)
+    fetch(`/api/vans/${params.id}`)
       .then((res) => res.json())
       .then((data) => setVan(data.vans));
     //fetch data each time the path id changes
