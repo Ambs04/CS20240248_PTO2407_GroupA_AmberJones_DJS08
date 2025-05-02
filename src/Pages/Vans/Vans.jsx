@@ -1,5 +1,6 @@
 import React from "react";
 import "../../server";
+import { Link } from "react-router-dom";
 
 export default function Vans() {
   //set state(empty array) to a variable
@@ -15,12 +16,14 @@ export default function Vans() {
   //map over api data and log a custom card for each van in the react dom
   const vanEl = vans.map((van) => (
     <div key={van.id} className="van-tile">
-      <img src={van.imageUrl} />
-      <div className="van-info">
-        <h3>{van.name}</h3>
-        <p>${van.price} / day</p>
-      </div>
-      <i className={`van-type ${van.type} selected`}>{van.type}</i>
+      <Link to="/vans/:id">
+        <img src={van.imageUrl} />
+        <div className="van-info">
+          <h3>{van.name}</h3>
+          <p>${van.price} / day</p>
+        </div>
+        <i className={`van-type ${van.type} selected`}>{van.type}</i>
+      </Link>
     </div>
   ));
 
