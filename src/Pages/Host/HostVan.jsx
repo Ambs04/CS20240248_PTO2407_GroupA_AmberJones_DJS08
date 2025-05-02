@@ -11,13 +11,15 @@ export default function HostVan() {
   }, []);
 
   const hostVanEl = vans.map((van) => (
-    <div key={van.id}>
-      <img src={van.imageUrl} />
-      <div>
-        <h3>{van.name}</h3>
-        <p>${van.price} / day</p>
+    <Link to={`/host/vans/${van.id}`} key={van.id}>
+      <div key={van.id}>
+        <img src={van.imageUrl} />
+        <div>
+          <h3>{van.name}</h3>
+          <p>${van.price} / day</p>
+        </div>
       </div>
-    </div>
+    </Link>
   ));
 
   return (
