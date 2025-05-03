@@ -11,16 +11,16 @@ export default function Vans() {
 
   const filterType = searchParams.get("type");
 
-  const displayVans = filterType
-    ? vans.filter((van) => van.type === filterType)
-    : vans;
-
   //fetch data from server.js 'api' and load api data once
   React.useEffect(() => {
     fetch("api/vans")
       .then((res) => res.json())
       .then((data) => setVans(data.vans));
   }, []);
+
+  const displayVans = filterType
+    ? vans.filter((van) => van.type === filterType)
+    : vans;
 
   //map over api data and log a custom card for each van in the react dom
   const vanEl = vans.map((van) => (
@@ -42,12 +42,22 @@ export default function Vans() {
     </div>
   ));
 
+  function handleFilters(key, value) {
+    setSearchParams((prevParams) => {
+      if (value === null) {
+        prevParams.delete(key);
+      }
+      return prevParams;
+    });
+  }
+
   return (
     <div className="van-list-container">
       <div>
         <h1>Explore our van options</h1>
         <div className="van-list-filter-buttons">
           <button
+            onClick={() => handleFilters("type", "simple")}
             className={`van-type simple ${
               filterType === "simple" ? "selected" : ""
             }`}
@@ -55,6 +65,7 @@ export default function Vans() {
             Simple
           </button>
           <button
+            onClick={() => handleFilters("type", "luxury")}
             className={`van-type luxury ${
               filterType === "luxury" ? "selected" : ""
             }`}
@@ -62,6 +73,7 @@ export default function Vans() {
             Luxury
           </button>
           <button
+            onClick={() => handleFilters("type", "rugged")}
             className={`van-type rugged ${
               filterType === "rugged" ? "selected" : ""
             }`}
