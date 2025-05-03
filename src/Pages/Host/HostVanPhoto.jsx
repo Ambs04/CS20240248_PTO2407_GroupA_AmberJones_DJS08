@@ -1,3 +1,3 @@
-export default function HostVanPricing() {
+export default function HostVanPhoto() {
   return <h1>Photos go here</h1>;
 }

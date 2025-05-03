@@ -1,3 +1,3 @@
-export default function HostVanPricing() {
+export default function HostVanInfo() {
   return <h1>Info goes here</h1>;
 }
