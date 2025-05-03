@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 //import { Link } from "react-router-dom";
 //import "../../server";
 
@@ -10,6 +10,8 @@ export default function VanDetail() {
   //set state
   const [van, setVan] = React.useState(null);
 
+  const location = useLocation();
+
   //fetch data from 'api' and map data to the setVan array
   React.useEffect(() => {
     fetch(`/api/vans/${params.id}`)
@@ -18,10 +20,16 @@ export default function VanDetail() {
     //fetch data each time the path id changes
   }, [params.id]);
 
+  const search = location.useState?.search || "";
+  const type = location.useState?.type || "all";
+
   //Use ternary to see if van exists, if it does, display van  detail tile. If it doesn't exist then render the h2 text
 
   return (
     <div className="van-detail-container">
+      <Link to={`..${search}`} relative="path" className="back-button">
+        &larr; <span>Back to {type}</span>
+      </Link>
       {van ? (
         <div className="van-detail">
           <img src={van.imageUrl} />

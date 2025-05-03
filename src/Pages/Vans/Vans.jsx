@@ -23,10 +23,10 @@ export default function Vans() {
     : vans;
 
   //map over api data and log a custom card for each van in the react dom
-  const vanEl = vans.map((van) => (
+  const vanEl = displayVans.map((van) => (
     <div key={van.id} className="van-tile">
       <Link
-        to={`/vans/${van.id}`}
+        to={van.id}
         state={{
           search: `?${searchParams.toString()}`,
           type: filterType,
@@ -46,7 +46,10 @@ export default function Vans() {
     setSearchParams((prevParams) => {
       if (value === null) {
         prevParams.delete(key);
+      } else {
+        prevParams.set(key, value);
       }
+
       return prevParams;
     });
   }
