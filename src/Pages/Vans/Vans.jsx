@@ -1,10 +1,19 @@
 import React from "react";
 import "../../server";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 export default function Vans() {
+  //set search params
+  const [searchParams, setSearchParams] = useSearchParams();
+
   //set state(empty array) to a variable
   const [vans, setVans] = React.useState([]);
+
+  const filterType = searchParams.get("type");
+
+  const displayVans = filterType
+    ? vans.filter((van) => van.type === filterType)
+    : vans;
 
   //fetch data from server.js 'api' and load api data once
   React.useEffect(() => {
@@ -16,7 +25,13 @@ export default function Vans() {
   //map over api data and log a custom card for each van in the react dom
   const vanEl = vans.map((van) => (
     <div key={van.id} className="van-tile">
-      <Link to={`/vans/${van.id}`}>
+      <Link
+        to={`/vans/${van.id}`}
+        state={{
+          search: `?${searchParams.toString()}`,
+          type: filterType,
+        }}
+      >
         <img src={van.imageUrl} />
         <div className="van-info">
           <h3>{van.name}</h3>
