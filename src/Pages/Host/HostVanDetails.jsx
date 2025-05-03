@@ -41,6 +41,7 @@ export default function HostVanDetails() {
         <nav className="host-van-detail-nav">
           <NavLink
             to="."
+            end
             style={({ isActive }) => (isActive ? styleActive : null)}
           >
             Details
@@ -52,7 +53,7 @@ export default function HostVanDetails() {
             Pricing
           </NavLink>
           <NavLink
-            to="photo"
+            to="photos"
             style={({ isActive }) => (isActive ? styleActive : null)}
           >
             Photos
