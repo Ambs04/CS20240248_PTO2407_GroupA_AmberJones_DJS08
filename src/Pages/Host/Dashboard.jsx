@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 export default function Dashboard() {
-  const [vans, setVans] = React.useState([]);
+  // const [vans, setVans] = React.useState([]);
 
   return (
     <>
@@ -23,7 +23,7 @@ export default function Dashboard() {
           <h2></h2>
           <link to="vans">View all</link>
         </div>
-        <div>{vanEl}</div>
+        <div></div>
       </section>
     </>
   );
